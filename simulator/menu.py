@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
+from cache import CacheSimulator
 
 class SimulatorMenu:
     """
@@ -89,8 +90,8 @@ class SimulatorMenu:
 
     def run_simulation(self):
         if att_dict := self.get_all_attributes():
-            # TODO: implementar agora o simulador no cache.py
-            pass
+            cache = CacheSimulator(**att_dict)
+            cache.execute()
         else:
             messagebox.showerror(
                 title="Erro nos atributos de entrada!",
