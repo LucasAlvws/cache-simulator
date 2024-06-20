@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 teste.py
+
+test_results/*
