@@ -1,0 +1,24 @@
+##Result##
+- Leituras: 45056
+- Acertos de Leitura: 45016
+- Escritas: 6144
+- Acertos de Escrita: 6144
+- Acertos Totais: 51160
+- Acessos à Memória Principal: 6188
+- Acessos read à Memória Principal: 44
+- Acessos write à Memória Principal: 6144
+- Tempo Simulação (ns): 882880.0000
+
++ writing_policy = 0
++ line_size = 128
++ line_size_pot = 7
++ lines_number = 256
++ lines_number_pot = 8
++ set_associativity = 4
++ set_associativity_pot = 2
++ replacement_policy = 1
++ hit_time = 10
++ main_memory_time = 60
++ output_file_name = asdavvvv
++ input_file_path = /home/lucasalves/ucs/cache-simulator/tests/oficial.cache
++ output_file_directory = /home/lucasalves/ucs/cache-simulator
