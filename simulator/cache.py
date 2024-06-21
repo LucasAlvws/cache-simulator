@@ -143,8 +143,11 @@ class CacheSimulator:
             output_file.write(f"- Acertos de Leitura: {self.cache_read_hit}\n")
             output_file.write(f"- Escritas: {self.all_write_counter}\n")
             output_file.write(f"- Acertos de Escrita: {self.cache_write_hit}\n")
-            output_file.write(f"- Acetos Totais: {self.cache_read_hit + self.cache_write_hit}\n")
+            output_file.write(f"- Acertos Totais: {self.cache_read_hit + self.cache_write_hit}\n")
             output_file.write(f"- Acessos à Memória Principal: {self.main_memory_read + self.main_memory_write}\n")
+            output_file.write(f"- Acessos read à Memória Principal: {self.main_memory_read}\n")
+            output_file.write(f"- Acessos write à Memória Principal: {self.main_memory_write}\n")
+
             output_file.write(f"- Tempo Simulação (ns): {self.time:.4f}\n\n")
             for name, item in self.input_parameters.items():
                 output_file.write(f"+ {name} = {item}\n")
