@@ -103,8 +103,11 @@ class SimulatorMenu:
             att_dict = {
                 "writing_policy": int(self.writing_policy.get()),
                 "line_size": 2**int(self.line_size.get()),
+                "line_size_pot": int(self.line_size.get()),
                 "lines_number": 2**int(self.lines_number.get()),
+                "lines_number_pot": int(self.lines_number.get()),
                 "set_associativity": 2**int(self.set_associativity.get()),
+                "set_associativity_pot": int(self.set_associativity.get()),
                 "replacement_policy": int(self.replacement_policy.get()),
                 "hit_time": int(self.hit_time.get()),
                 "main_memory_time": int(self.main_memory_time.get()),
