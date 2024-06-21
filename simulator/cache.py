@@ -63,8 +63,8 @@ class CacheSimulator:
 
     def get_indices(self, address):
         address_bin = bin(int(address, 16))[2:].zfill(32)
-        tag = int(address_bin[: -self.label_size], 2)
-        index = int(address_bin[-self.label_size : -self.set_size], 2)
+        tag = int(address_bin[: self.label_size], 2)
+        index = int(address_bin[self.label_size : self.label_size + self.set_size], 2)
         offset = int(address_bin[-self.word_size :], 2)
 
         return tag, index, offset
@@ -128,10 +128,10 @@ class CacheSimulator:
         if self.input_parameters['writing_policy'] == 1 and line_to_change.dirty:
             self.main_memory_write += 1
 
-        command_set.lines.pop(line_to_change)
+        command_set.lines.remove(line_to_change)
 
         new_line = ChacheLine(tag, clean=False)
-        command_set.blocks.append(new_line)
+        command_set.lines.append(new_line)
 
     def generate_output_file(self):
         with open(
