@@ -1,5 +1,7 @@
 # cache-simulator
 
+University work that simulates a fully configurable cache.
+
 ## Requisitos
 
 Python >= 3 
