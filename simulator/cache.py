@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 
 
 class ChacheLine:
-    def __init__(self, tag=None, last_hit_time=0, access_counter=0, dirty=False, clean=True):
+    def __init__(
+        self, tag=None, last_hit_time=0, access_counter=0, dirty=False, clean=True
+    ):
         self.tag = tag
         self.last_hit_time = last_hit_time
         self.access_counter = access_counter
@@ -24,10 +26,15 @@ class CacheSet:
 class CacheSimulator:
     def __init__(self, **kwargs) -> None:
         self.input_parameters = kwargs
-        self.set_numbers = self.input_parameters["lines_number"] // self.input_parameters["set_associativity"]
-        self.cache_memory = self.create_cache_memory(self.input_parameters["set_associativity"], self.set_numbers)
+        self.set_numbers = (
+            self.input_parameters["lines_number"]
+            // self.input_parameters["set_associativity"]
+        )
+        self.cache_memory = self.create_cache_memory(
+            self.input_parameters["set_associativity"], self.set_numbers
+        )
 
-        self.word_size = int(self.input_parameters['line_size_pot'])
+        self.word_size = int(self.input_parameters["line_size_pot"])
         self.set_size = int(math.log2(self.set_numbers))
         self.label_size = int(32 - self.set_size - self.word_size)
 
@@ -56,8 +63,12 @@ class CacheSimulator:
 
         if self.input_parameters["replacement_policy"] == 1:
             self.execute_write_back()
-        self.time = (self.input_parameters['hit_time'] * (self.cache_read_hit + self.cache_write_hit)) + (
-            self.input_parameters['main_memory_time'] * (self.main_memory_read + self.main_memory_write)
+        self.time = (
+            self.input_parameters["hit_time"]
+            * (self.cache_read_hit + self.cache_write_hit)
+        ) + (
+            self.input_parameters["main_memory_time"]
+            * (self.main_memory_read + self.main_memory_write)
         )
         self.generate_output_file()
 
@@ -93,7 +104,7 @@ class CacheSimulator:
             if line.tag == tag:
                 if write:
                     self.cache_write_hit += 1
-                    if self.input_parameters['writing_policy'] == 0:
+                    if self.input_parameters["writing_policy"] == 0:
                         self.main_memory_write += 1
                     else:
                         line.dirty = True
@@ -102,8 +113,7 @@ class CacheSimulator:
                 line.last_hit_time = self.time
                 line.access_counter += 1
                 return True
-        if write and self.input_parameters['writing_policy'] == 0:
-            self.cache_write_hit += 1
+        if write and self.input_parameters["writing_policy"] == 0:
             self.main_memory_write += 1
         self.bring_set_to_cache(command_set, tag)
         return False
@@ -119,13 +129,15 @@ class CacheSimulator:
                 return
 
         if self.input_parameters["replacement_policy"] == 0:
-            line_to_change = min(command_set.lines, key=lambda line: line.access_counter)
+            line_to_change = min(
+                command_set.lines, key=lambda line: line.access_counter
+            )
         elif self.input_parameters["replacement_policy"] == 1:
             line_to_change = min(command_set.lines, key=lambda line: line.last_hit_time)
         else:
             line_to_change = random.choice(command_set.lines)
 
-        if self.input_parameters['writing_policy'] == 1 and line_to_change.dirty:
+        if self.input_parameters["writing_policy"] == 1 and line_to_change.dirty:
             self.main_memory_write += 1
 
         command_set.lines.remove(line_to_change)
@@ -140,21 +152,41 @@ class CacheSimulator:
         ) as output_file:
             output_file.write("##Result##\n")
             output_file.write(f"- Leituras: {self.all_read_counter}\n")
-            output_file.write(f"- Acertos de Leitura: {self.cache_read_hit}\n")
             output_file.write(f"- Escritas: {self.all_write_counter}\n")
+            output_file.write(
+                f"- Total: {self.all_write_counter + self.all_read_counter}\n"
+            )
+            output_file.write("\n")
+            output_file.write(f"- Acertos de Leitura: {self.cache_read_hit}\n")
             output_file.write(f"- Acertos de Escrita: {self.cache_write_hit}\n")
-            output_file.write(f"- Acertos Totais: {self.cache_read_hit + self.cache_write_hit}\n")
-            output_file.write(f"- Acessos à Memória Principal: {self.main_memory_read + self.main_memory_write}\n")
-            output_file.write(f"- Acessos read à Memória Principal: {self.main_memory_read}\n")
-            output_file.write(f"- Acessos write à Memória Principal: {self.main_memory_write}\n")
+            output_file.write(
+                f"- Acertos Totais: {self.cache_read_hit + self.cache_write_hit}\n"
+            )
+            output_file.write("\n")
+            output_file.write(
+                f"- Acessos read à Memória Principal: {self.main_memory_read}\n"
+            )
+            output_file.write(
+                f"- Acessos write à Memória Principal: {self.main_memory_write}\n"
+            )
+            output_file.write(
+                f"- Acessos à Memória Principal: {self.main_memory_read + self.main_memory_write}\n"
+            )
+            output_file.write("\n")
+            taxa_hit = ((self.cache_read_hit + self.cache_write_hit) * 100) / (self.all_write_counter + self.all_read_counter)
+            output_file.write(
+                f"- Taxa de hit total: {taxa_hit:.4f}%\n"
+            )
 
             output_file.write(f"- Tempo Simulação (ns): {self.time:.4f}\n\n")
+            media = self.input_parameters['hit_time'] + (1 - taxa_hit/100)* self.input_parameters['main_memory_time']
+            output_file.write(f"- Tempo Médio (ns): {media:.4f}\n\n")
             for name, item in self.input_parameters.items():
                 output_file.write(f"+ {name} = {item}\n")
 
     def generate_graph_file(self, x, y, title, xlabel, ylabel, filename):
         plt.figure()
-        plt.plot(x, y, marker='o')
+        plt.plot(x, y, marker="o")
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
         plt.title(title)
