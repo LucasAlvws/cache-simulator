@@ -176,7 +176,7 @@ class CacheSimulator:
                 f"- Acessos write à Memória Principal: {self.main_memory_write}\n"
             )
             output_file.write(
-                f"- Acessos à Memória Principal: {self.main_memory_read + self.main_memory_write}\n"
+                f"- Acessos Totais à Memória Principal: {self.main_memory_read + self.main_memory_write}\n"
             )
             output_file.write("\n")
             taxa_hit = ((self.cache_read_hit + self.cache_write_hit) * 100) / (self.all_write_counter + self.all_read_counter)
