@@ -29,13 +29,16 @@ class CacheSimulator:
         self.set_numbers = (
             self.input_parameters["lines_number"]
             // self.input_parameters["set_associativity"]
-        )
+        ) or 1
         self.cache_memory = self.create_cache_memory(
             self.input_parameters["set_associativity"], self.set_numbers
         )
 
         self.word_size = int(self.input_parameters["line_size_pot"])
-        self.set_size = int(math.log2(self.set_numbers))
+        if self.set_numbers == 1:
+            self.set_size = 1
+        else:
+            self.set_size = int(math.log2(self.set_numbers))
         self.label_size = int(32 - self.set_size - self.word_size)
 
         self.all_read_counter = 0
@@ -75,7 +78,10 @@ class CacheSimulator:
     def get_indices(self, address):
         address_bin = bin(int(address, 16))[2:].zfill(32)
         tag = int(address_bin[: self.label_size], 2)
-        index = int(address_bin[self.label_size : self.label_size + self.set_size], 2)
+        if self.set_size == 1:
+            index = 0
+        else:
+            index = int(address_bin[self.label_size : self.label_size + self.set_size], 2)
         offset = int(address_bin[-self.word_size :], 2)
 
         return tag, index, offset

@@ -1,0 +1,31 @@
+##Result##
+- Leituras: 45056
+- Escritas: 6144
+- Total: 51200
+
+- Acertos de Leitura: 23552
+- Acertos de Escrita: 4096
+- Acertos Totais: 27648
+
+- Acessos read à Memória Principal: 23552
+- Acessos write à Memória Principal: 6144
+- Acessos à Memória Principal: 29696
+
+- Taxa de hit total: 54.0000%
+- Tempo Simulação (ns): 2058240.0000
+
+- Tempo Médio (ns): 37.6000
+
++ writing_policy = 0
++ line_size = 128
++ line_size_pot = 7
++ lines_number = 16
++ lines_number_pot = 4
++ set_associativity = 4
++ set_associativity_pot = 2
++ replacement_policy = 1
++ hit_time = 10
++ main_memory_time = 60
++ output_file_name = ImpactodoTamanhodaCache16
++ input_file_path = /home/lucasalves/ucs/cache-simulator/tests/oficial.cache
++ output_file_directory = /home/lucasalves/ucs/cache-simulator/results
