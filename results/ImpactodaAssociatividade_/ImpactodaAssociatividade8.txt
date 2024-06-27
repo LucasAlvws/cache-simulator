@@ -1,0 +1,31 @@
+##Result##
+- Leituras: 45056
+- Escritas: 6144
+- Total: 51200
+
+- Acertos de Leitura: 40928
+- Acertos de Escrita: 5118
+- Acertos Totais: 46046
+
+- Acessos read à Memória Principal: 5154
+- Acessos write à Memória Principal: 514
+- Acessos Totais à Memória Principal: 5668
+
+- Taxa de hit total: 89.9336%
+- Tempo Simulação (ns): 800540.0000
+
+- Tempo Médio (ns): 16.0398
+
++ writing_policy = 1
++ line_size = 128
++ line_size_pot = 7
++ lines_number = 64
++ lines_number_pot = 6
++ set_associativity = 8
++ set_associativity_pot = 3
++ replacement_policy = 1
++ hit_time = 10
++ main_memory_time = 60
++ output_file_name = ImpactodaAssociatividade8
++ input_file_path = /home/lucas/projects/cache-simulator/tests/oficial.cache
++ output_file_directory = /home/lucas/projects/cache-simulator/results/ImpactodaAssociatividade_
