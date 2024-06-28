@@ -1,0 +1,31 @@
+##Result##
+- Leituras: 45056
+- Escritas: 6144
+- Total: 51200
+
+- Acertos de Leitura: 40880
+- Acertos de Escrita: 5118
+- Acertos Totais: 45998
+
+- Acessos read à Memória Principal: 5202
+- Acessos write à Memória Principal: 6144
+- Acessos Totais à Memória Principal: 11346
+
+- Taxa de hit total: 89.8398%
+- Tempo Simulação (ns): 1140740.0000
+
+- Tempo Médio (ns): 16.0961
+
++ writing_policy = 0
++ line_size = 32
++ line_size_pot = 5
++ lines_number = 256
++ lines_number_pot = 8
++ set_associativity = 2
++ set_associativity_pot = 1
++ replacement_policy = 1
++ hit_time = 10
++ main_memory_time = 60
++ output_file_name = ImpactodoTamanhodoBloco256
++ input_file_path = /home/gabriel/projects/cache-simulator/tests/oficial.cache
++ output_file_directory = /home/gabriel/projects/cache-simulator/results/ImpactodoTamanhodoBloco_
