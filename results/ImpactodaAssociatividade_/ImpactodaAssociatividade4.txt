@@ -3,18 +3,18 @@
 - Escritas: 6144
 - Total: 51200
 
-- Acertos de Leitura: 41950
-- Acertos de Escrita: 5629
-- Acertos Totais: 47579
+- Acertos de Leitura: 42970
+- Acertos de Escrita: 6140
+- Acertos Totais: 49110
 
-- Acessos read à Memória Principal: 3621
-- Acessos write à Memória Principal: 515
-- Acessos Totais à Memória Principal: 4136
+- Acessos read à Memória Principal: 2090
+- Acessos write à Memória Principal: 4
+- Acessos Totais à Memória Principal: 2094
 
-- Taxa de hit total: 92.9277%
-- Tempo Simulação (ns): 723950.0000
+- Taxa de hit total: 95.9180%
+- Tempo Simulação (ns): 616740.0000
 
-- Tempo Médio (ns): 14.2434
+- Tempo Médio (ns): 12.4492
 
 + writing_policy = 1
 + line_size = 128
