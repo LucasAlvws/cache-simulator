@@ -116,6 +116,7 @@ class CacheSimulator:
                         line.dirty = True
                 else:
                     self.cache_read_hit += 1
+                self.time += 1
                 line.last_hit_time = self.time
                 line.access_counter += 1
                 return True

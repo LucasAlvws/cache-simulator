@@ -28,4 +28,4 @@
 + main_memory_time = 60
 + output_file_name = ImpactodaAssociatividade1
 + input_file_path = /home/lucas/projects/cache-simulator/tests/oficial.cache
-+ output_file_directory = /home/lucas/projects/cache-simulator/ImpactodaAssociatividade
++ output_file_directory = /home/lucas/projects/cache-simulator/results/ImpactodaAssociatividade_

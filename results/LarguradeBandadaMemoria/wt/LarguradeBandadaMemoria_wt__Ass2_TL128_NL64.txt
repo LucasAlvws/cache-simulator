@@ -8,15 +8,15 @@
 - Acertos Totais: 45024
 
 - Acessos read à Memória Principal: 6176
-- Acessos write à Memória Principal: 514
-- Acessos Totais à Memória Principal: 6690
+- Acessos write à Memória Principal: 6144
+- Acessos Totais à Memória Principal: 12320
 
 - Taxa de hit total: 87.9375%
-- Tempo Simulação (ns): 851640.0000
+- Tempo Simulação (ns): 1189440.0000
 
 - Tempo Médio (ns): 17.2375
 
-+ writing_policy = 1
++ writing_policy = 0
 + line_size = 128
 + line_size_pot = 7
 + lines_number = 64
@@ -26,6 +26,6 @@
 + replacement_policy = 1
 + hit_time = 10
 + main_memory_time = 60
-+ output_file_name = ImpactodaAssociatividade2
++ output_file_name = LarguradeBandadaMemoria_wt__Ass2_TL128_NL64
 + input_file_path = /home/lucas/projects/cache-simulator/tests/oficial.cache
-+ output_file_directory = /home/lucas/projects/cache-simulator/results/ImpactodaAssociatividade_
++ output_file_directory = /home/lucas/projects/cache-simulator/results/LarguradeBandadaMemoria/wt
