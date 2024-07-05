@@ -49,7 +49,7 @@ class CacheSimulator:
 
         self.cache_read_hit = 0
         self.cache_write_hit = 0
-
+        
         self.time = 0
 
     def execute(self):
@@ -122,10 +122,10 @@ class CacheSimulator:
                 return True
         if write and self.input_parameters["writing_policy"] == 0:
             self.main_memory_write += 1
-        self.bring_set_to_cache(command_set, tag)
+        self.bring_set_to_cache(command_set, tag, write)
         return False
 
-    def bring_set_to_cache(self, command_set, tag):
+    def bring_set_to_cache(self, command_set, tag, write=False):
         self.main_memory_read += 1
         for line in command_set.lines:
             if line.clean:
@@ -133,6 +133,8 @@ class CacheSimulator:
                 line.last_hit_time = self.time
                 line.access_counter = 1
                 line.clean = False
+                if write and self.input_parameters["writing_policy"] == 1:
+                    line.dirty = True
                 return
 
         if self.input_parameters["replacement_policy"] == 0:

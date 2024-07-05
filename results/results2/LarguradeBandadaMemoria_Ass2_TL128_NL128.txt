@@ -1,0 +1,31 @@
+##Result##
+- Leituras: 45056
+- Escritas: 6144
+- Total: 51200
+
+- Acertos de Leitura: 42971
+- Acertos de Escrita: 5118
+- Acertos Totais: 48089
+
+- Acessos read à Memória Principal: 3111
+- Acessos write à Memória Principal: 515
+- Acessos Totais à Memória Principal: 3626
+
+- Taxa de hit total: 93.9238%
+- Tempo Simulação (ns): 698450.0000
+
+- Tempo Médio (ns): 13.6457
+
++ writing_policy = 1
++ line_size = 128
++ line_size_pot = 7
++ lines_number = 128
++ lines_number_pot = 7
++ set_associativity = 2
++ set_associativity_pot = 1
++ replacement_policy = 1
++ hit_time = 10
++ main_memory_time = 60
++ output_file_name = LarguradeBandadaMemoria_Ass2_TL128_NL128
++ input_file_path = /home/lucasalves/ucs/cache-simulator/tests/oficial.cache
++ output_file_directory = /home/lucasalves/ucs/cache-simulator
